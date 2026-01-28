@@ -1,0 +1,238 @@
+1.HTTP VS HTTPS ?
+
+1.HTTP (HyperText Transfer Protocol)
+
+.Not secure – data is sent in plain text
+.Anyone intercepting the connection can read or modify the data
+ No encryption, authentication, or data integrity
+->URLs start with: http://
+.Commonly used in the past or for non-sensitive internal testing
+.Example risk:
+Passwords, form data, or cookies can be stolen via packet sniffing.
+
+2.HTTPS (HyperText Transfer Protocol Secure)
+
+.Secure version of HTTP
+.Uses SSL/TLS encryption
+.Data is encrypted, ensuring:
+.Confidentiality – data can’t be read
+.Integrity – data can’t be altered
+.Authentication – verifies the website’s identity
+->URLs start with: https://
+.Shows a padlock  in the browser
+.Required for modern websites, payments, logins, and APIs
+
+
+=======================================================================================================================================
+
+2.Define web Architecture and DNS ?
+
+1.Web Architecture
+
+Web Architecture is the overall structure and design of a web application that defines how clients, servers, databases, and network components interact to deliver web content and services.
+
+.Key components:
+.Client – Web browser or mobile app (user interface)
+.Web Server – Handles HTTP/HTTPS requests (e.g., Apache, Nginx)
+.Application Server – Processes business logic
+.Database – Stores and manages data
+.Network/Protocols – HTTP/HTTPS, TCP/IP
+
+.Common types:
+-> Tier – Client and server together
+-> Tier – Client ↔ Server
+-> Tier – Client ↔ Application Server ↔ Database (most common)
+
+2.DNS (Domain Name System)
+
+.DNS (Domain Name System) is a naming system that translates human-readable domain names (like www.google.com) into IP addresses (like 142.250.190.14) that computers use to identify each other on the network.
+
+Why DNS is needed:
+.Humans remember names, not numbers
+Computers communicate using IP addresses
+How DNS works (simple):
+User enters a website name in the browser
+DNS server looks up the corresponding IP address
+Browser connects to the web server using that IP
+
+=========================================================================================================================================
+
+3.Difference between ARIA and WAI ARIA ?
+
+.ARIA vs WAI-ARIA
+
+=>ARIA (Accessible Rich Internet Applications)
+
+.A shortened/common name
+ Informally used by developers
+
+.Refers to accessibility attributes like:
+
+->aria-label
+->aria-hidden
+->aria-role
+
+.WAI-ARIA (Web Accessibility Initiative – ARIA)
+
+.The official and complete name
+ Defined by W3C (World Wide Web Consortium)
+.Part of the Web Accessibility Initiative (WAI)
+.Provides standards to make dynamic and interactive web content accessible, especially for screen readers
+
+Key Point (Exam-Friendly)
+->ARIA is the short name, while WAI-ARIA is the official specification name. 
+->Both mean the same thing and serve the same purpose.
+     ex.<button aria-label="Close">X</button>(html)
+
+=========================================================================================================================================
+
+4.How the backend of the screen works ?
+
+=>The backend of a screen refers to what happens behind the scenes when a user interacts with a screen (web page or app UI). It includes server-side logic, databases, and APIs that process user actions and send data back to the screen.
+
+.How the Backend of a Screen Works (Step by Step)
+1.User Interaction (Frontend)
+
+.User clicks a button, submits a form, or opens a screen
+.Frontend (HTML/CSS/JS or mobile UI) captures the action
+
+2.Request Sent to Backend
+
+'Frontend sends a request using HTTP/HTTPS
+common request types:
+->GET – fetch data
+->POST – send data
+->PUT – update data
+->DELETE – remove data
+.Request goes to an API endpoint
+
+3.Backend Processing
+.Backend server (e.g., Node.js, Java, Python, PHP):
+.Validates user input
+.Applies business logic
+.Checks authentication & authorization
+.Communicates with databases or other services
+
+4.Database Interaction
+.Backend reads/writes data from/to the database
+.Example: fetch user profile, save order details
+
+5.Response Sent Back
+.Backend sends a response (usually JSON)
+
+Includes:
+.Data
+.Status code (200, 404, 500, etc.)
+
+6.UI Update (Frontend)
+
+.Frontend receives the response
+.Screen updates dynamically:
+.Displays data
+.Shows success/error messages
+
+=========================================================================================================================================
+
+5.How Browser works back-end ?
+
+
+.Great question! Let’s break down how a web browser works on the back-end — 
+ the hidden machinery that makes your browsing experience smooth.
+.Main Components of a Browser’s Back-End
+ User Interface Layer
+
+.Handles what you see: address bar, back/forward buttons, bookmarks, tabs.
+.Sends your input (like typing a URL) to deeper browser processes.
+.Browser Engine
+.Acts as a bridge between the UI and the rendering engine.
+.Decides what needs to be fetched, parsed, and displayed.
+
+->Networking
+.Manages HTTP/HTTPS requests to servers.
+.Handles caching, cookies, DNS lookups, and secure connections (TLS/SSL).
+
+->Rendering Engine
+.Converts HTML, CSS, and JavaScript into the visual page you see.
+  Examples: Blink (Chrome/Edge), WebKit (Safari), Gecko (Firefox).
+
+=>Steps:
+
+.Parse HTML → build DOM tree
+.Parse CSS → build CSSOM tree
+.Combine into Render Tree
+.Layout → calculate positions
+.Paint → draw pixels on screen
+
+=>JavaScript Engine
+
+.Executes scripts embedded in web pages.
+.Examples: V8 (Chrome/Edge), SpiderMonkey (Firefox).
+.Handles dynamic content, interactivity, and logic.
+
+->Data Storage
+.Local storage, IndexedDB, cookies, cache.
+.Allows offline use and faster reloads.
+.Security Sandbox
+.Isolates processes so malicious code can’t easily affect your system.
+.Each tab often runs in its own process for safety.
+
+->Workflow: What Happens When You Type a URL
+ You type https://example.com in the address bar.
+
+.Browser checks cache/DNS → finds IP address.
+.Networking layer sends an HTTPS request.
+.Server responds with HTML, CSS, JS.
+.Rendering engine parses and builds DOM + CSSOM.
+.JavaScript engine runs scripts.
+.Render tree → layout → paint → pixels on screen.
+
+=========================================================================================================================================
+
+6)Define CDN.
+
+-> A Content Delivery Network (CDN) is a geographically distributed group of servers that work together to provide fast and secure delivery of Internet content. By caching content (such as HTML pages, JavaScript files, images, and videos) in multiple locations around the world, a CDN ensures that when a user requests data, it is served from the server physically closest to them, thereby reducing latency and improving website performance. 
+
+=========================================================================================================================================
+
+7)Define DNS
+
+-> The Domain Name System (DNS) is a hierarchical and distributed naming system used to translate human-readable domain names (like google.com) into machine-readable numerical IP addresses (like 142.250.190.46). Often referred to as the "phonebook of the internet," DNS allows users to access websites using memorable names instead of complex strings of numbers.
+
+=========================================================================================================================================
+
+8.Explain the smallest javaScript file ?
+
+-> What Counts as the Smallest JavaScript File?
+Empty File
+->A .js file with no content at all is technically valid.
+.Size: 0 bytes.
+.It does nothing, but browsers can load it without error.
+.Minimal Valid Statement
+.The smallest executable JavaScript file could contain just a semicolon (;).
+.This is a no-op (no operation), but it’s syntactically valid.
+.Size: 1 byte.
+
+=========================================================================================================================================
+
+9.How Arithemetic operators and concatenation works in browser ?
+
+->Great topic! Let’s dive into how arithmetic operators and string concatenation work inside a browser’s JavaScript engine.
+=>Arithmetic Operators in JavaScript
+.Browsers use the JavaScript engine (like V8 in Chrome, SpiderMonkey in Firefox) to interpret and execute arithmetic operations.
+
+Common operators:
+
+(+ → Addition)
+(- → Subtraction)
+(* → Multiplication)
+(/ → Division)
+(% → Modulus (remainder))
+(** → Exponentiation)
+
+How it works:
+.Parsing: The engine reads your code and builds an abstract syntax tree (AST).
+.Type Conversion: If operands are numbers, it performs direct math.
+.Example: 5 + 3 → 8.
+.Execution: The engine uses optimized machine code to calculate results quickly.
+
+
